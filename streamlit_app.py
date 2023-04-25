@@ -1,10 +1,10 @@
 import streamlit
-
-
+import pandas
+import requests
 import snowflake.connector
 from urllib.error import URLError
 
-import pandas
+
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
 
@@ -23,7 +23,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 streamlit.dataframe(fruits_to_show)
 
-#import requests
+
 streamlit.header('Fruitvice Fruit Advice')
 try:  
   fruit_choice = streamlit.text_input('What fruit would you like information about?', 'kiwi')
